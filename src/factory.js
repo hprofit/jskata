@@ -31,10 +31,17 @@ var Factory = (function(){
     };
 
     return {
+        /**
+         *
+         * @param desiredObject
+         * @param args
+         * @returns {null}
+         * @constructor
+         */
         GetNewNumberedObject: function(desiredObject, args) {
             args = args || [];
-
-            return objects[desiredObject].build(args);
+            var obj = objects[desiredObject];
+            return obj.build ? obj.build(args): null;
         }
     }
 })();
